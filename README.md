@@ -30,7 +30,7 @@
 
 <br/>
 
-[📖 Documentation](#-quick-start) • [🚀 Live Demo](#) • [📊 Features](#-features) • [🤝 Contributing](#-contributing)
+[📖 Documentation](#-quick-start) • [🚀 Live Demo](https://olist-intelligence.vercel.app) • [📊 Features](#-features) • [🤝 Contributing](#-contributing)
 
 </div>
 
