@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Olist Intelligence Suite Design System
+  Theme: Royal Purple Minimalist
+  Style: Clean whitespace, subtle shadows, refined typography
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Base colors - Light mode (Royal Purple Minimalist) */
+    --background: 270 20% 99%;
+    --foreground: 270 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 50% 10%;
+
+    /* Primary - Royal Purple */
+    --primary: 270 65% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft lavender */
+    --secondary: 270 20% 96%;
+    --secondary-foreground: 270 30% 40%;
+
+    /* Muted - Light purple-gray */
+    --muted: 270 15% 95%;
+    --muted-foreground: 270 10% 45%;
+
+    /* Accent - Vibrant magenta undertone */
+    --accent: 280 50% 95%;
+    --accent-foreground: 280 60% 45%;
+
+    /* Destructive */
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success */
+    --success: 155 65% 42%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 38 90% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info */
+    --info: 210 85% 55%;
+    --info-foreground: 0 0% 100%;
+
+    /* Border & Input */
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 270 65% 55%;
+
+    --radius: 0.625rem;
+
+    /* Chart colors - Purple-based palette */
+    --chart-1: 270 65% 55%;
+    --chart-2: 280 60% 65%;
+    --chart-3: 210 85% 55%;
+    --chart-4: 38 90% 50%;
+    --chart-5: 0 72% 55%;
+
+    /* Sidebar */
+    --sidebar-background: 270 25% 98%;
+    --sidebar-foreground: 270 50% 10%;
+    --sidebar-primary: 270 65% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 40% 94%;
+    --sidebar-accent-foreground: 270 60% 45%;
+    --sidebar-border: 270 15% 90%;
+    --sidebar-ring: 270 65% 55%;
+
+    /* KPI Card specific */
+    --kpi-positive: 155 65% 42%;
+    --kpi-negative: 0 72% 55%;
+    --kpi-neutral: 270 10% 45%;
+
+    /* Data visualization */
+    --late-color: 0 72% 55%;
+    --ontime-color: 155 65% 42%;
+  }
+
+  .dark {
+    --background: 270 30% 6%;
+    --foreground: 270 15% 95%;
+
+    --card: 270 30% 8%;
+    --card-foreground: 270 15% 95%;
+
+    --popover: 270 30% 8%;
+    --popover-foreground: 270 15% 95%;
+
+    --primary: 270 60% 60%;
+    --primary-foreground: 270 30% 6%;
+
+    --secondary: 270 25% 15%;
+    --secondary-foreground: 270 15% 85%;
+
+    --muted: 270 25% 15%;
+    --muted-foreground: 270 10% 60%;
+
+    --accent: 280 40% 18%;
+    --accent-foreground: 280 50% 75%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 270 15% 95%;
+
+    --success: 155 60% 40%;
+    --success-foreground: 270 15% 95%;
+
+    --warning: 38 85% 45%;
+    --warning-foreground: 270 15% 95%;
+
+    --info: 210 80% 50%;
+    --info-foreground: 270 15% 95%;
+
+    --border: 270 25% 18%;
+    --input: 270 25% 18%;
+    --ring: 270 60% 60%;
+
+    --sidebar-background: 270 30% 7%;
+    --sidebar-foreground: 270 15% 95%;
+    --sidebar-primary: 270 60% 60%;
+    --sidebar-primary-foreground: 270 30% 6%;
+    --sidebar-accent: 280 40% 18%;
+    --sidebar-accent-foreground: 280 50% 75%;
+    --sidebar-border: 270 25% 18%;
+    --sidebar-ring: 270 60% 60%;
+
+    --kpi-positive: 155 60% 50%;
+    --kpi-negative: 0 72% 60%;
+    --kpi-neutral: 270 10% 60%;
+
+    --late-color: 0 72% 60%;
+    --ontime-color: 155 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  /* KPI Card Styles */
+  .kpi-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-sm transition-all duration-200;
+  }
+
+  .kpi-card:hover {
+    @apply shadow-md border-primary/20;
+  }
+
+  .kpi-value {
+    @apply text-3xl font-semibold tracking-tight text-foreground;
+  }
+
+  .kpi-label {
+    @apply text-sm font-medium text-muted-foreground uppercase tracking-wide;
+  }
+
+  .kpi-delta-positive {
+    @apply text-sm font-medium text-[hsl(var(--kpi-positive))];
+  }
+
+  .kpi-delta-negative {
+    @apply text-sm font-medium text-[hsl(var(--kpi-negative))];
+  }
+
+  /* Dashboard Section */
+  .dashboard-section {
+    @apply bg-card border border-border rounded-lg p-6 shadow-sm;
+  }
+
+  .dashboard-title {
+    @apply text-lg font-semibold text-foreground mb-4;
+  }
+
+  /* Data Table Styles */
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table th {
+    @apply text-left text-xs font-medium text-muted-foreground uppercase tracking-wider py-3 px-4 bg-muted/50;
+  }
+
+  .data-table td {
+    @apply py-3 px-4 border-b border-border;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-muted/30;
+  }
+
+  /* Status badges */
+  .badge-success {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))];
+  }
+
+  .badge-danger {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[hsl(var(--destructive)/0.1)] text-[hsl(var(--destructive))];
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[hsl(var(--warning)/0.1)] text-[hsl(var(--warning))];
+  }
+
+  .badge-info {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[hsl(var(--info)/0.1)] text-[hsl(var(--info))];
+  }
+
+  /* Upload file indicator */
+  .file-indicator {
+    @apply flex items-center gap-2 px-3 py-2 rounded-md text-sm;
+  }
+
+  .file-indicator-success {
+    @apply bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))];
+  }
+
+  .file-indicator-pending {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  /* Chart container */
+  .chart-container {
+    @apply w-full h-[300px] md:h-[400px];
+  }
+
+  /* Progress bar custom */
+  .progress-bar {
+    @apply h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-primary transition-all duration-500 ease-out rounded-full;
+  }
+
+  /* Sidebar nav styles */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors;
+  }
+
+  .nav-item-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .nav-item-inactive {
+    @apply text-muted-foreground hover:bg-accent hover:text-accent-foreground;
+  }
+
+  /* Metric trend indicator */
+  .trend-up {
+    @apply inline-flex items-center text-[hsl(var(--kpi-positive))];
+  }
+
+  .trend-down {
+    @apply inline-flex items-center text-[hsl(var(--kpi-negative))];
+  }
+
+  /* Filter dropdown */
+  .filter-group {
+    @apply flex flex-wrap gap-3 items-center;
+  }
+
+  .filter-select {
+    @apply px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Shimmer loading effect */
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Number formatting */
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
